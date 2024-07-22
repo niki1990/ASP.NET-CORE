@@ -1,0 +1,14 @@
+﻿@model ICollection<CommentViewModel>
+@if (Model != null) 
+{ 
+    <h3>Comments (@Model.Count())</h3>
+    @foreach (var item in Model) 
+    {
+        <h5>@item.Name</h5>
+        <div>@item.Email</div> <p>@item.Body</p>
+    } 
+}
+else
+{
+     <p>No Comment found!</p>
+}

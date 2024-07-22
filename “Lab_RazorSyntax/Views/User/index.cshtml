@@ -1,0 +1,51 @@
+﻿@model IEnumerable<UserModel>
+@{
+    ViewData["Title"] = "User List";
+}
+
+<h1>Create User</h1>
+<form asp-action="Create">
+    <div>
+        <label>UserId:</label>
+        <input type="text" name="UserId" />
+    </div>
+    <div>
+        <label>Name:</label>
+        <input type="text" name="Name" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" name="Email" />
+    </div>
+    <input type="submit" value="Create" />
+</form>
+<hr />
+
+
+<h1>User List</h1>
+@if (Model.Count() == 0)
+{
+    <p>No user found</p>
+}
+else
+{
+    int index = 0;
+    <p>Total Users: @Model.Count()</p>
+    <table border="1px" cellpadding="1px">
+        <tr>
+            <th>User Id</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            index++;
+            string bgColor = index % 2 == 0 ? "lightblue" : "";
+            <tr style="background-color:@bgColor">
+                <td>@item.UserId</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+            </tr>
+        }
+    </table>
+}

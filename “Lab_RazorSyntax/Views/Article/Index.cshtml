@@ -1,0 +1,6 @@
+﻿@model PostViewModel 
+@{ ViewData["Title"] = "Index"; } 
+<h1>@Model.Title</h1> 
+<div>By: @Model.Author</div>
+<p>@Model.Body</p>
+@await Component.InvokeAsync("Comment", new { Id = 4 })
